@@ -1,0 +1,1 @@
+var a=10,b=20;c=a+b;var x=1,y=2;z=x*y;

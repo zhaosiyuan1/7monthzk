@@ -8,6 +8,7 @@ var webServer = require('gulp-webserver');
 var url = require('url');
 var fs = require('fs');
 var path = require('path');
+var uglify = require('gulp-uglify');
 // 开发环境
 
 // 编译scss
@@ -45,3 +46,26 @@ gulp.task('watch', function() {
 
 // 用一个来代替 watch 和 server
 gulp.task('dev', ['server', 'watch']);
+
+// 线上环境
+
+// 线上 编译scss
+gulp.task('buildScss', function() {
+    gulp.src('./src/scss/*.scss')
+        .pipe(scss())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions', 'Android >=4.0']
+        }))
+        .pipe(concat('all.css'))
+        .pipe(cleanCss())
+        .pipe(gulp.dest('build/css'))
+});
+// 线上编译js
+gulp.task('buildJs', function() {
+    gulp.src(['./src/js/*.js', '!./src/js/*.min.js'])
+        .pipe(concat('all.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('build/js'))
+});
+// 用一个命令来代替 buildScss 和 buildJs
+gulp.task('build', ['buildScss', 'buildJs']);
