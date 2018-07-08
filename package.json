@@ -1,0 +1,20 @@
+{
+    "name": "7monthzk",
+    "version": "1.0.0",
+    "description": "7monthzk1",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "gulp dev"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zhaosiyuan1/7monthzk.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/zhaosiyuan1/7monthzk/issues"
+    },
+    "homepage": "https://github.com/zhaosiyuan1/7monthzk#readme"
+}
